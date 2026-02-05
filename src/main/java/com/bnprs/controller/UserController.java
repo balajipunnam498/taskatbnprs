@@ -42,4 +42,10 @@ public class UserController {
 		String deleteUser = userservice.deleteUser(userid);
 		return deleteUser;
 	}
+	
+	@PutMapping("/updateuser/{userid}")
+	public String updateUser(@PathVariable int userid,@RequestBody User user) {
+		String updateUser = userservice.updateUser(userid, user);
+		return updateUser;
+	}
 }

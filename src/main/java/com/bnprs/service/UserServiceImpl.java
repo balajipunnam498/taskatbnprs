@@ -37,4 +37,13 @@ public class UserServiceImpl {
 		userDao.deleteById(userid);
 		return "Deleted";
 	}
+	
+	public String updateUser(int userid, User user) {
+		User userObj = userDao.findById(userid).get();
+		userObj.setAge(user.getAge());
+		userObj.setEmail(user.getEmail());
+		userObj.setName(user.getName());
+		userDao.save(userObj);
+		return "Update Succesful";
+	}
 }
